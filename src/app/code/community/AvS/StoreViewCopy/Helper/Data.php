@@ -9,4 +9,6 @@
  */
 class AvS_StoreViewCopy_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    /** @var string $_moduleName Module name */
+    protected $_moduleName = 'AvS_StoreViewCopy';
 } 

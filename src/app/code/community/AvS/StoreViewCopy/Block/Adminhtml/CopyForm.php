@@ -39,17 +39,18 @@ class AvS_StoreViewCopy_Block_Adminhtml_CopyForm extends Mage_Adminhtml_Block_Wi
         return $this->getUrl('*/*/save', array('_current'=>true));
     }
 
-    public function getStores() {
-
+    public function getStores()
+    {
         return Mage::getModel('core/store')->getCollection()->setOrder('website_id', 'ASC')->setOrder('name', 'ASC');
     }
 
-    public function getProductIds() {
-
+    public function getProductIds()
+    {
         return Mage::app()->getRequest()->getParam('product');
     }
 
-    public function getProducts() {
+    public function getProducts()
+    {
         $products = Mage::getModel('catalog/product')->getCollection();
         $products->addAttributeToSelect('name');
         $products->addAttributeToFilter('entity_id', array('in' => $this->getProductIds()));
@@ -57,8 +58,8 @@ class AvS_StoreViewCopy_Block_Adminhtml_CopyForm extends Mage_Adminhtml_Block_Wi
         return $products;
     }
 
-    public function getFullStoreName($store) {
-
+    public function getFullStoreName($store)
+    {
         $name = array();
         $name[] = $store->getWebsite()->getName();
         $name[] = $store->getGroup()->getName();
